@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{FF082787-B03A-4BF0-9B6E-FA3DDDD6DF5C}</ProjectGuid>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <Keyword>ManagedCProj</Keyword>
+    <RootNamespace>StepperControl</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <ProjectName>Beam_Profiler_Actuator</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <AdditionalIncludeDirectories>$(PYLON_DEV_DIR)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>$(PYLON_DEV_DIR)\lib\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies />
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>main</EntryPointSymbol>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies />
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies />
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MyForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="opencv2\calib3d.hpp" />
+    <ClInclude Include="opencv2\calib3d\calib3d.hpp" />
+    <ClInclude Include="opencv2\calib3d\calib3d_c.h" />
+    <ClInclude Include="opencv2\core.hpp" />
+    <ClInclude Include="opencv2\core\affine.hpp" />
+    <ClInclude Include="opencv2\core\base.hpp" />
+    <ClInclude Include="opencv2\core\bufferpool.hpp" />
+    <ClInclude Include="opencv2\core\core.hpp" />
+    <ClInclude Include="opencv2\core\core_c.h" />
+    <ClInclude Include="opencv2\core\cuda.hpp" />
+    <ClInclude Include="opencv2\core\cuda.inl.hpp" />
+    <ClInclude Include="opencv2\core\cuda_stream_accessor.hpp" />
+    <ClInclude Include="opencv2\core\cuda_types.hpp" />
+    <ClInclude Include="opencv2\core\cvdef.h" />
+    <ClInclude Include="opencv2\core\cvstd.hpp" />
+    <ClInclude Include="opencv2\core\cvstd.inl.hpp" />
+    <ClInclude Include="opencv2\core\directx.hpp" />
+    <ClInclude Include="opencv2\core\eigen.hpp" />
+    <ClInclude Include="opencv2\core\fast_math.hpp" />
+    <ClInclude Include="opencv2\core\hal\hal.hpp" />
+    <ClInclude Include="opencv2\core\hal\interface.h" />
+    <ClInclude Include="opencv2\core\hal\intrin.hpp" />
+    <ClInclude Include="opencv2\core\hal\intrin_cpp.hpp" />
+    <ClInclude Include="opencv2\core\hal\intrin_neon.hpp" />
+    <ClInclude Include="opencv2\core\hal\intrin_sse.hpp" />
+    <ClInclude Include="opencv2\core\ippasync.hpp" />
+    <ClInclude Include="opencv2\core\mat.hpp" />
+    <ClInclude Include="opencv2\core\mat.inl.hpp" />
+    <ClInclude Include="opencv2\core\matx.hpp" />
+    <ClInclude Include="opencv2\core\neon_utils.hpp" />
+    <ClInclude Include="opencv2\core\ocl.hpp" />
+    <ClInclude Include="opencv2\core\ocl_genbase.hpp" />
+    <ClInclude Include="opencv2\core\opengl.hpp" />
+    <ClInclude Include="opencv2\core\operations.hpp" />
+    <ClInclude Include="opencv2\core\optim.hpp" />
+    <ClInclude Include="opencv2\core\ovx.hpp" />
+    <ClInclude Include="opencv2\core\persistence.hpp" />
+    <ClInclude Include="opencv2\core\private.cuda.hpp" />
+    <ClInclude Include="opencv2\core\private.hpp" />
+    <ClInclude Include="opencv2\core\ptr.inl.hpp" />
+    <ClInclude Include="opencv2\core\saturate.hpp" />
+    <ClInclude Include="opencv2\core\sse_utils.hpp" />
+    <ClInclude Include="opencv2\core\traits.hpp" />
+    <ClInclude Include="opencv2\core\types.hpp" />
+    <ClInclude Include="opencv2\core\types_c.h" />
+    <ClInclude Include="opencv2\core\utility.hpp" />
+    <ClInclude Include="opencv2\core\va_intel.hpp" />
+    <ClInclude Include="opencv2\core\version.hpp" />
+    <ClInclude Include="opencv2\core\wimage.hpp" />
+    <ClInclude Include="opencv2\cvconfig.h" />
+    <ClInclude Include="opencv2\features2d.hpp" />
+    <ClInclude Include="opencv2\features2d\features2d.hpp" />
+    <ClInclude Include="opencv2\flann.hpp" />
+    <ClInclude Include="opencv2\flann\allocator.h" />
+    <ClInclude Include="opencv2\flann\all_indices.h" />
+    <ClInclude Include="opencv2\flann\any.h" />
+    <ClInclude Include="opencv2\flann\autotuned_index.h" />
+    <ClInclude Include="opencv2\flann\composite_index.h" />
+    <ClInclude Include="opencv2\flann\config.h" />
+    <ClInclude Include="opencv2\flann\defines.h" />
+    <ClInclude Include="opencv2\flann\dist.h" />
+    <ClInclude Include="opencv2\flann\dummy.h" />
+    <ClInclude Include="opencv2\flann\dynamic_bitset.h" />
+    <ClInclude Include="opencv2\flann\flann.hpp" />
+    <ClInclude Include="opencv2\flann\flann_base.hpp" />
+    <ClInclude Include="opencv2\flann\general.h" />
+    <ClInclude Include="opencv2\flann\ground_truth.h" />
+    <ClInclude Include="opencv2\flann\hdf5.h" />
+    <ClInclude Include="opencv2\flann\heap.h" />
+    <ClInclude Include="opencv2\flann\hierarchical_clustering_index.h" />
+    <ClInclude Include="opencv2\flann\index_testing.h" />
+    <ClInclude Include="opencv2\flann\kdtree_index.h" />
+    <ClInclude Include="opencv2\flann\kdtree_single_index.h" />
+    <ClInclude Include="opencv2\flann\kmeans_index.h" />
+    <ClInclude Include="opencv2\flann\linear_index.h" />
+    <ClInclude Include="opencv2\flann\logger.h" />
+    <ClInclude Include="opencv2\flann\lsh_index.h" />
+    <ClInclude Include="opencv2\flann\lsh_table.h" />
+    <ClInclude Include="opencv2\flann\matrix.h" />
+    <ClInclude Include="opencv2\flann\miniflann.hpp" />
+    <ClInclude Include="opencv2\flann\nn_index.h" />
+    <ClInclude Include="opencv2\flann\object_factory.h" />
+    <ClInclude Include="opencv2\flann\params.h" />
+    <ClInclude Include="opencv2\flann\random.h" />
+    <ClInclude Include="opencv2\flann\result_set.h" />
+    <ClInclude Include="opencv2\flann\sampling.h" />
+    <ClInclude Include="opencv2\flann\saving.h" />
+    <ClInclude Include="opencv2\flann\simplex_downhill.h" />
+    <ClInclude Include="opencv2\flann\timer.h" />
+    <ClInclude Include="opencv2\highgui.hpp" />
+    <ClInclude Include="opencv2\highgui\highgui.hpp" />
+    <ClInclude Include="opencv2\highgui\highgui_c.h" />
+    <ClInclude Include="opencv2\imgcodecs.hpp" />
+    <ClInclude Include="opencv2\imgcodecs\imgcodecs.hpp" />
+    <ClInclude Include="opencv2\imgcodecs\imgcodecs_c.h" />
+    <ClInclude Include="opencv2\imgcodecs\ios.h" />
+    <ClInclude Include="opencv2\imgproc.hpp" />
+    <ClInclude Include="opencv2\imgproc\detail\distortion_model.hpp" />
+    <ClInclude Include="opencv2\imgproc\hal\hal.hpp" />
+    <ClInclude Include="opencv2\imgproc\hal\interface.h" />
+    <ClInclude Include="opencv2\imgproc\imgproc.hpp" />
+    <ClInclude Include="opencv2\imgproc\imgproc_c.h" />
+    <ClInclude Include="opencv2\imgproc\types_c.h" />
+    <ClInclude Include="opencv2\ml.hpp" />
+    <ClInclude Include="opencv2\ml\ml.hpp" />
+    <ClInclude Include="opencv2\objdetect.hpp" />
+    <ClInclude Include="opencv2\objdetect\detection_based_tracker.hpp" />
+    <ClInclude Include="opencv2\objdetect\objdetect.hpp" />
+    <ClInclude Include="opencv2\objdetect\objdetect_c.h" />
+    <ClInclude Include="opencv2\opencv.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="opencv2\opencv_modules.hpp" />
+    <ClInclude Include="opencv2\photo.hpp" />
+    <ClInclude Include="opencv2\photo\cuda.hpp" />
+    <ClInclude Include="opencv2\photo\photo.hpp" />
+    <ClInclude Include="opencv2\photo\photo_c.h" />
+    <ClInclude Include="opencv2\shape.hpp" />
+    <ClInclude Include="opencv2\shape\emdL1.hpp" />
+    <ClInclude Include="opencv2\shape\hist_cost.hpp" />
+    <ClInclude Include="opencv2\shape\shape.hpp" />
+    <ClInclude Include="opencv2\shape\shape_distance.hpp" />
+    <ClInclude Include="opencv2\shape\shape_transformer.hpp" />
+    <ClInclude Include="opencv2\stitching.hpp" />
+    <ClInclude Include="opencv2\stitching\detail\autocalib.hpp" />
+    <ClInclude Include="opencv2\stitching\detail\blenders.hpp" />
+    <ClInclude Include="opencv2\stitching\detail\camera.hpp" />
+    <ClInclude Include="opencv2\stitching\detail\exposure_compensate.hpp" />
+    <ClInclude Include="opencv2\stitching\detail\matchers.hpp" />
+    <ClInclude Include="opencv2\stitching\detail\motion_estimators.hpp" />
+    <ClInclude Include="opencv2\stitching\detail\seam_finders.hpp" />
+    <ClInclude Include="opencv2\stitching\detail\timelapsers.hpp" />
+    <ClInclude Include="opencv2\stitching\detail\util.hpp" />
+    <ClInclude Include="opencv2\stitching\detail\util_inl.hpp" />
+    <ClInclude Include="opencv2\stitching\detail\warpers.hpp" />
+    <ClInclude Include="opencv2\stitching\detail\warpers_inl.hpp" />
+    <ClInclude Include="opencv2\stitching\warpers.hpp" />
+    <ClInclude Include="opencv2\superres.hpp" />
+    <ClInclude Include="opencv2\superres\optical_flow.hpp" />
+    <ClInclude Include="opencv2\video.hpp" />
+    <ClInclude Include="opencv2\videoio.hpp" />
+    <ClInclude Include="opencv2\videoio\cap_ios.h" />
+    <ClInclude Include="opencv2\videoio\videoio.hpp" />
+    <ClInclude Include="opencv2\videoio\videoio_c.h" />
+    <ClInclude Include="opencv2\videostab.hpp" />
+    <ClInclude Include="opencv2\videostab\deblurring.hpp" />
+    <ClInclude Include="opencv2\videostab\fast_marching.hpp" />
+    <ClInclude Include="opencv2\videostab\fast_marching_inl.hpp" />
+    <ClInclude Include="opencv2\videostab\frame_source.hpp" />
+    <ClInclude Include="opencv2\videostab\global_motion.hpp" />
+    <ClInclude Include="opencv2\videostab\inpainting.hpp" />
+    <ClInclude Include="opencv2\videostab\log.hpp" />
+    <ClInclude Include="opencv2\videostab\motion_core.hpp" />
+    <ClInclude Include="opencv2\videostab\motion_stabilizing.hpp" />
+    <ClInclude Include="opencv2\videostab\optical_flow.hpp" />
+    <ClInclude Include="opencv2\videostab\outlier_rejection.hpp" />
+    <ClInclude Include="opencv2\videostab\ring_buffer.hpp" />
+    <ClInclude Include="opencv2\videostab\stabilizer.hpp" />
+    <ClInclude Include="opencv2\videostab\wobble_suppression.hpp" />
+    <ClInclude Include="opencv2\video\background_segm.hpp" />
+    <ClInclude Include="opencv2\video\tracking.hpp" />
+    <ClInclude Include="opencv2\video\tracking_c.h" />
+    <ClInclude Include="opencv2\video\video.hpp" />
+    <ClInclude Include="opencv2\world.hpp" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="app.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="MainProgram.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\AppData\Local\Packages\microsoft.microsoftedge_8wekyb3d8bbwe\AC\#!001\MicrosoftEdge\Cache\E7GOLV76\LN-Model[1].jpg" />
+    <Image Include="app.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MyForm.resx">
+      <DependentUpon>MyForm.h</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
