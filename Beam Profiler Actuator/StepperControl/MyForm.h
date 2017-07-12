@@ -1,8 +1,10 @@
 #pragma once
+#include <string>
 #using <System.dll>
+
 namespace StepperControl {
 
-
+	
 	using namespace System;
 
 	//io port
@@ -16,11 +18,16 @@ namespace StepperControl {
 	/// <summary>
 	/// Summary for MyForm
 	/// </summary>
+
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
+
 	public:
+		//display string in the display text field
+		String^ displayStr = "";
 		MyForm(void)
 		{
+
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
@@ -38,6 +45,9 @@ namespace StepperControl {
 			for each(String^ port in serialPorts) {
 				this->comboBox1->Items->Add(port);
 			}
+
+	
+
 		}
 
 	protected:
@@ -60,7 +70,7 @@ namespace StepperControl {
 	private: System::Windows::Forms::TextBox^  textBox2;
 	private: System::Windows::Forms::Button^  moveButton;
 	private: System::Windows::Forms::Label^  displayLabel;
-
+    
 
 
 	private: System::Windows::Forms::Button^  comfirmButton;
@@ -147,6 +157,7 @@ namespace StepperControl {
 			this->moveButton->TabIndex = 5;
 			this->moveButton->Text = L"Move";
 			this->moveButton->UseVisualStyleBackColor = false;
+			this->moveButton->Click += gcnew System::EventHandler(this, &MyForm::moveButton_Click);
 			// 
 			// displayLabel
 			// 
@@ -215,6 +226,7 @@ namespace StepperControl {
 			this->CheckImageButton->TabIndex = 10;
 			this->CheckImageButton->Text = L"Check Image";
 			this->CheckImageButton->UseVisualStyleBackColor = false;
+			this->CheckImageButton->Click += gcnew System::EventHandler(this, &MyForm::CheckImageButton_Click);
 			// 
 			// stopButton
 			// 
@@ -258,7 +270,8 @@ namespace StepperControl {
 
 		}
 #pragma endregion
-	
+
+
 	private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -274,14 +287,16 @@ namespace StepperControl {
 		gcroot<String^> portName; //Defines the COM Port used to communicate with the uStepper 
 		portName = gcnew String(comboBox1->Text);
 		if (comboBox1->Text == "") {
-			displayLabel->Text = "Port should not be empty";
+		    displayStr = displayStr + "\nPort should not be empty";
+			displayLabel->Text = displayStr;
 			flag = false;
 		}
 		if (flag) {
 			//Creates uStepper object and opens the connection
 			uStepper = gcnew SerialPort(portName, baudRate);
 			uStepper->Open();
-			displayLabel->Text = "Connect successfully";
+			displayStr = displayStr + "\nConnect successfully";
+			displayLabel->Text = displayStr;
 		}
 	}
 	private: System::Void textBox2_TextChanged(System::Object^  sender, System::EventArgs^  e) {
@@ -293,6 +308,10 @@ private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, Sy
 }
 
 private: System::Void LaserFire_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void CheckImageButton_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void moveButton_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }

@@ -529,12 +529,36 @@
     <ClCompile Include="MainProgram.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Divergence_Post_Processing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="hline.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vline.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Example.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="readData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="..\..\..\..\AppData\Local\Packages\microsoft.microsoftedge_8wekyb3d8bbwe\AC\#!001\MicrosoftEdge\Cache\E7GOLV76\LN-Model[1].jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bgImage.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bgIamge2.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="BMP.jpg">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
@@ -545,5 +569,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="Debug\.NETFramework,Version=v4.5.2.AssemblyAttributes.asm">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="Debug\.NETFramework,Version=v4.6.1.AssemblyAttributes.asm">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

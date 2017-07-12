@@ -1,1 +1,12 @@
-﻿  StepperControl.vcxproj -> C:\Users\进伟\Desktop\C++ code for actuator\Beam Profiler Actuator\x64\Debug\Beam_Profiler_Actuator.exe
+﻿  readData.cpp
+readData.cpp(85): error C2065: 'cout': undeclared identifier
+readData.cpp(85): error C2065: 'endl': undeclared identifier
+readData.cpp(97): error C2065: 'cout': undeclared identifier
+readData.cpp(97): error C2065: 'endl': undeclared identifier
+readData.cpp(103): error C2065: 'cout': undeclared identifier
+readData.cpp(103): error C2065: 'endl': undeclared identifier
+readData.cpp(122): error C2065: 'cout': undeclared identifier
+readData.cpp(124): error C2065: 'endl': undeclared identifier
+readData.cpp(169): error C2065: 'cout': undeclared identifier
+readData.cpp(170): error C2065: 'cout': undeclared identifier
+readData.cpp(170): error C2065: 'endl': undeclared identifier

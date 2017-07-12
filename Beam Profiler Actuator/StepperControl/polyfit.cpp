@@ -36,25 +36,18 @@ int polyfit(const double* const dependentValues,
 	unsigned int        order,
 	double*             coefficients)
 {
-
 	// Declarations...
 	// ----------------------------------
-
 	//Arbitary value to ensure program doesn't get stuck in loop
 	enum { maxOrder = 5 };
-
 	double B[maxOrder + 1] = { 0.0f };
 	double P[((maxOrder + 1) * 2) + 1] = { 0.0f };
 	double A[(maxOrder + 1) * 2 * (maxOrder + 1)] = { 0.0f };
 
 	double x, y, powx;
-
 	unsigned int ii, jj, kk;
-
-
 	// Verify initial conditions....
 	// ----------------------------------
-
 	// This method requires that the countOfElements > 
 	// (order+1) 
 	if (countOfElements <= order)
@@ -64,10 +57,8 @@ int polyfit(const double* const dependentValues,
 	// order <= maxOrder.  Increase maxOrder if necessary.
 	if (order > maxOrder)
 		return -1;
-
 	// Begin Code...
 	// ----------------------------------
-
 	// Identify the column vector
 	for (ii = 0; ii < countOfElements; ii++)
 	{
@@ -84,7 +75,6 @@ int polyfit(const double* const dependentValues,
 
 	// Initialize the PowX array
 	P[0] = countOfElements;
-
 	// Compute the sum of the Powers of X
 	for (ii = 0; ii < countOfElements; ii++)
 	{
@@ -106,7 +96,6 @@ int polyfit(const double* const dependentValues,
 		{
 			A[(ii * (2 * (order + 1))) + jj] = P[ii + jj];
 		}
-
 		A[(ii*(2 * (order + 1))) + (ii + (order + 1))] = 1;
 	}
 
@@ -159,13 +148,11 @@ int polyfit(const double* const dependentValues,
 			coefficients[ii] = x;
 		}
 	}
-
 	return 0;
 }
 
 int main()
 {
-
 	//Used to multiply Z by 10^-3 in order to get correct units
 	int zUnitCorrection;
 	for (zUnitCorrection = 0; zUnitCorrection < 15; zUnitCorrection++) z[zUnitCorrection] *= 0.001;

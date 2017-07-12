@@ -78,6 +78,9 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>C:\Program Files\HDF_Group\HDF5\1.10.1\lib;C:\Program Files\MATLAB\R2016a\extern\lib\win64\microsoft;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>C:\Program Files\MATLAB\R2016a\bin\win64;$(ExecutablePath)</ExecutablePath>
+    <IncludePath>C:\Program Files\HDF_Group\HDF5\1.10.1\include;C:\Program Files\MATLAB\R2016a\extern\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -109,8 +112,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
     <Link>
-      <AdditionalDependencies />
-      <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>libmx.lib;libeng.lib;libmex.lib;libmat.lib;szip.lib;zlib.lib;hdf5.lib;hdf5_cpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>NotSet</SubSystem>
       <EntryPointSymbol>main</EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
@@ -321,6 +324,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="Divergence_Post_Processing.cpp" />
+    <ClCompile Include="Example.cpp" />
+    <ClCompile Include="hline.cpp" />
+    <ClCompile Include="readData.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -330,10 +337,14 @@
     <ClCompile Include="MainProgram.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="vline.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\AppData\Local\Packages\microsoft.microsoftedge_8wekyb3d8bbwe\AC\#!001\MicrosoftEdge\Cache\E7GOLV76\LN-Model[1].jpg" />
     <Image Include="app.ico" />
+    <Image Include="bgIamge2.jpg" />
+    <Image Include="bgImage.jpg" />
+    <Image Include="BMP.jpg" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MyForm.resx">
@@ -342,6 +353,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="Debug\.NETFramework,Version=v4.5.2.AssemblyAttributes.asm" />
+    <None Include="Debug\.NETFramework,Version=v4.6.1.AssemblyAttributes.asm" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
