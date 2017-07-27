@@ -1,0 +1,10 @@
+﻿  imageProcess.cpp
+c:\users\jinwei\documents\visual studio 2017\projects\imagechecking\imagechecking\imageprocess.cpp(137): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\time.h(505): note: see declaration of 'localtime'
+c:\users\jinwei\documents\visual studio 2017\projects\imagechecking\imagechecking\imageprocess.cpp(168): warning C4244: 'initializing': conversion from 'std::streamoff' to 'long', possible loss of data
+c:\users\jinwei\documents\visual studio 2017\projects\imagechecking\imagechecking\imageprocess.cpp(232): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\time.h(505): note: see declaration of 'localtime'
+c:\users\jinwei\documents\visual studio 2017\projects\imagechecking\imagechecking\imageprocess.cpp(261): warning C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdlib.h(1282): note: see declaration of '_sleep'
+  imageChecking.vcxproj -> C:\Users\jinwei\Documents\Visual Studio 2017\Projects\imageChecking\Debug\imageChecking.exe
+  imageChecking.vcxproj -> C:\Users\jinwei\Documents\Visual Studio 2017\Projects\imageChecking\Debug\imageChecking.pdb (Partial PDB)

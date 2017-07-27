@@ -1,0 +1,26 @@
+﻿  h5tutr_crtdat.cpp
+c:\program files\hdf_group\hdf5\1.10.1\include\h5exception.h(89): warning C4251: 'H5::Exception::detail_message': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'H5::Exception'
+  c:\program files (x86)\microsoft visual studio\2017\professional\vc\tools\msvc\14.10.25017\include\xstring(3997): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+c:\program files\hdf_group\hdf5\1.10.1\include\h5exception.h(90): warning C4251: 'H5::Exception::func_name': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'H5::Exception'
+  c:\program files (x86)\microsoft visual studio\2017\professional\vc\tools\msvc\14.10.25017\include\xstring(3997): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+  example.cpp
+c:\users\jinwei\documents\visual studio 2017\projects\firstproject\firstproject\example.cpp(4): error C2871: 'System': a namespace with this name does not exist
+c:\users\jinwei\documents\visual studio 2017\projects\firstproject\firstproject\example.cpp(6): error C2653: 'Spiricon': is not a class or namespace name
+c:\users\jinwei\documents\visual studio 2017\projects\firstproject\firstproject\example.cpp(6): error C2871: 'Automation': a namespace with this name does not exist
+c:\users\jinwei\documents\visual studio 2017\projects\firstproject\firstproject\example.cpp(8): error C2059: syntax error: 'public'
+c:\users\jinwei\documents\visual studio 2017\projects\firstproject\firstproject\example.cpp(9): error C2143: syntax error: missing ';' before '{'
+c:\users\jinwei\documents\visual studio 2017\projects\firstproject\firstproject\example.cpp(9): error C2447: '{': missing function header (old-style formal list?)
+c:\users\jinwei\documents\visual studio 2017\projects\firstproject\firstproject\example.cpp(55): error C2653: 'System': is not a class or namespace name
+c:\users\jinwei\documents\visual studio 2017\projects\firstproject\firstproject\example.cpp(55): error C2065: 'String': undeclared identifier
+c:\users\jinwei\documents\visual studio 2017\projects\firstproject\firstproject\example.cpp(55): error C2059: syntax error: '>'
+c:\users\jinwei\documents\visual studio 2017\projects\firstproject\firstproject\example.cpp(55): error C2976: 'std::array': too few template arguments
+  c:\program files (x86)\microsoft visual studio\2017\professional\vc\tools\msvc\14.10.25017\include\utility(380): note: see declaration of 'std::array'
+c:\users\jinwei\documents\visual studio 2017\projects\firstproject\firstproject\example.cpp(55): error C2653: 'cli': is not a class or namespace name
+c:\users\jinwei\documents\visual studio 2017\projects\firstproject\firstproject\example.cpp(55): error C3193: '^': requires '/clr' or '/ZW' command line option
+c:\users\jinwei\documents\visual studio 2017\projects\firstproject\firstproject\example.cpp(57): error C2065: 'Runner': undeclared identifier
+c:\users\jinwei\documents\visual studio 2017\projects\firstproject\firstproject\example.cpp(57): error C2146: syntax error: missing ';' before identifier 'runMe'
+c:\users\jinwei\documents\visual studio 2017\projects\firstproject\firstproject\example.cpp(57): error C2065: 'runMe': undeclared identifier
+c:\users\jinwei\documents\visual studio 2017\projects\firstproject\firstproject\example.cpp(58): error C2065: 'runMe': undeclared identifier
+c:\users\jinwei\documents\visual studio 2017\projects\firstproject\firstproject\example.cpp(58): error C2228: left of '.Run' must have class/struct/union
+  c:\users\jinwei\documents\visual studio 2017\projects\firstproject\firstproject\example.cpp(58): note: type is 'unknown-type'
+  Generating Code...
