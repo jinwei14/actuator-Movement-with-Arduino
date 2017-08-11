@@ -1,0 +1,26 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly Spiricon.TreePattern, Version=6.0.*, Culture=Invariant Language (Invariant Country): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly Spiricon.TreePattern.Interfaces, Version=6.0.*, Culture=Invariant Language (Invariant Country): 
+	hash=None, flags=None
+Class Spiricon.TreePattern.CoreLogicTrunk: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :Spiricon.TreePattern.SingletonRefObject
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    Spiricon.TreePattern.Interfaces.ICoreLogicTrunk
+    Spiricon.TreePattern.Interfaces.ISupportInterfaceX
+    Spiricon.TreePattern.Interfaces.ISupportGetInterfaceX
+    Spiricon.TreePattern.Interfaces.ISupportServerChange
+  Methods:
+    AddInterfaceX(String, Object): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    GetInterfaceX(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    AddCallback(IServerChange): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    RemoveCallback(IServerChange): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    EventRefresh(IServerChange): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Class Spiricon.TreePattern.SingletonRefObject: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.MarshalByRefObject
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    InitializeLifetimeService(): PrivateScope, Public, Virtual, HideBySig

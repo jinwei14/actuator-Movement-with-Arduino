@@ -1,0 +1,43 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly Spiricon.Interfaces.ConsoleService, Version=6.7.*, Culture=Invariant Language (Invariant Country): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Struct Spiricon.Interfaces.ConsoleService.DataServerStruct: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, Serializable, BeforeFieldInit
+  :System.ValueType
+  Fields:
+    System.String Version : Public
+    Int32 ProcessID : Public
+    System.Object Dataserver : Public
+Interface Spiricon.Interfaces.ConsoleService.IServiceAgent: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Properties:
+    System.Collections.Generic.Dictionary`2[System.String,Spiricon.Interfaces.ConsoleService.DataServerStruct] GetDataServers 'get ' : 
+  Methods:
+    GetDataServer(String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    get_GetDataServers(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+Interface Spiricon.Interfaces.ConsoleService.ILoadDataServer: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Methods:
+    ShutDown(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Class Spiricon.Interfaces.ConsoleService.V5AppServerException: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.ArgumentException
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, System.Exception): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Struct Spiricon.Interfaces.ConsoleService.ServerTypes: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    Spiricon.Interfaces.ConsoleService.ServerTypes BGP_ = 0 : Public, Static, Literal, HasDefault
+    Spiricon.Interfaces.ConsoleService.ServerTypes BGE_ = 1 : Public, Static, Literal, HasDefault
+    Spiricon.Interfaces.ConsoleService.ServerTypes BM_ = 2 : Public, Static, Literal, HasDefault
+Interface Spiricon.Interfaces.ConsoleService.IAutomationClient: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Methods:
+    InstanceAdded(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Interface Spiricon.Interfaces.ConsoleService.IAutomationAppManager: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Methods:
+    GetV5Instance(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    GetV5Instances(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    AddV5Instance(String, Object): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    DeleteV5Instance(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    AddCallback(IAutomationClient): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    RemoveCallback(IAutomationClient): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
