@@ -110,6 +110,8 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies />
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>main</EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -150,6 +152,12 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GUIInterface.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="inputBox.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="opencv2\calib3d.hpp" />
     <ClInclude Include="opencv2\calib3d\calib3d.hpp" />
     <ClInclude Include="opencv2\calib3d\calib3d_c.h" />
@@ -319,9 +327,6 @@
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="app.rc" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="loggingChecking.cpp" />
     <ClCompile Include="loggingChecking.h" />
@@ -338,6 +343,28 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico" />
+    <Image Include="bgIamge2.jpg" />
+    <Image Include="bgImage.jpg" />
+    <Image Include="BMP.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GUIInterface.resx">
+      <DependentUpon>GUIInterface.h</DependentUpon>
+      <LogicalName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="inputBox.resx">
+      <DependentUpon>inputBox.h</DependentUpon>
+      <LogicalName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </LogicalName>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.aps" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

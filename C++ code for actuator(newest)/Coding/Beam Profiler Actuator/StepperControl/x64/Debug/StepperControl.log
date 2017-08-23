@@ -1,1 +1,3 @@
-﻿  StepperControl.vcxproj -> C:\Users\jinwei\Desktop\C++ code for actuator\Coding\Beam Profiler Actuator\x64\Debug\Beam_Profiler_Actuator.exe
+﻿  MainProgram.cpp
+x64\Debug\loggingChecking.obj : warning LNK4042: object specified more than once; extras ignored
+  StepperControl.vcxproj -> C:\Users\jinwei\Desktop\C++ code for actuator\Coding\Beam Profiler Actuator\x64\Debug\Beam_Profiler_Actuator.exe
