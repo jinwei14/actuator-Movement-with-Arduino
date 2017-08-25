@@ -5,6 +5,12 @@ ployfit::ployfit() {
 }
 ployfit::~ployfit() {
 }
+void ployfit::setZposition(int num, int pos) {
+	z[pos] = num;
+}
+void ployfit::setD4sigma(int num, int pos) {
+	w[pos] = num;
+}
 
 //Polynomial fit function
 int ployfit::polyfit(const double* const dependentValues,
@@ -128,81 +134,78 @@ int ployfit::polyfit(const double* const dependentValues,
 	return 0;
 }
 
-void ployfit::outputResult() {
+string ployfit::outputResult() {
 
+	string outputList;
+	//Used to multiply Z by 10^-3 in order to get correct units
+	int zUnitCorrection;
+	for (zUnitCorrection = 0; zUnitCorrection < 15; zUnitCorrection++) z[zUnitCorrection] *= 0.001;
 
-		//Used to multiply Z by 10^-3 in order to get correct units
-		int zUnitCorrection;
-		for (zUnitCorrection = 0; zUnitCorrection < 15; zUnitCorrection++) z[zUnitCorrection] *= 0.001;
-	
-		//Used to multiply w by 2x due to ideal data being radius
-		int wRadiusCorrection;
-		for (wRadiusCorrection = 0; wRadiusCorrection < 15; wRadiusCorrection++) w[wRadiusCorrection] *= 2;
-	
-		//Used to multiply Z by 10^-6 in order to get correct units
-		int wUnitCorrection;
-		for (wUnitCorrection = 0; wUnitCorrection < 15; wUnitCorrection++) w[wUnitCorrection] *= 0.000001;
-	
-		//Used to square w fitting this against z eliminates the sqrt from the function allowing the standard polyfit function to be used.
-		int wSquared;
-		for (wSquared = 0; wSquared < 15; wSquared++) w[wSquared] = w[wSquared] * w[wSquared];
-	
-		//Run the polyfit function with the values calculated
-		result = polyfit(z,
-			w,
-			countOfElements,
-			order,
-			coefficients);
-	
-		/*CHECK_EQUAL(0, result);
-		DOUBLES_EQUAL(0.5, coefficients[3], acceptableError);
-		DOUBLES_EQUAL(2.5, coefficients[2], acceptableError);
-		DOUBLES_EQUAL(1.0, coefficients[1], acceptableError);
-		DOUBLES_EQUAL(3.0, coefficients[0], acceptableError);*/
-	
-		//These values are the coefficients equivilent  to ax^2 + bx + c
-		double a = coefficients[2];
-		double b = coefficients[1];
-		double c = coefficients[0];
-	
-		std::cout << " Coefficients, a, b, and c, are: " << std::endl;
-		//Prints to coefficients incase they are needed
-		for (int i = 0; i < 3; i++)
-			std::cout << coefficients[i] << std::endl;
-	
-		//Full M2 equation
-		double M2 = (M_PI / (8 * lambda))*sqrt((4 * a*c) - (pow(b, 2)));
-	
-		//Prints the M2 value
-		std::cout << "M2: ";
-		std::cout << M2 << std::endl;
-	
-		//Waist location
-		double z0 = -b / (2 * c);
-	
-		//Prints the z0, waist location, value
-		std::cout << "z0, Waist Location: ";
-		std::cout << z0 << std::endl;
-	
-		// Waist diameter
-		double w0 = (1 / (2 * sqrt(c)))*sqrt((4 * a*c) - (pow(b, 2)));
-	
-		//Prints the w0, waist diameter, value
-		std::cout << "w0, Waist Diameter: ";
-		std::cout << w0 << std::endl;
-	
-		Sleep(3000);
-	
+	//Used to multiply w by 2x due to ideal data being radius
+	int wRadiusCorrection;
+	for (wRadiusCorrection = 0; wRadiusCorrection < 15; wRadiusCorrection++) w[wRadiusCorrection] *= 2;
 
+	//Used to multiply Z by 10^-6 in order to get correct units
+	int wUnitCorrection;
+	for (wUnitCorrection = 0; wUnitCorrection < 15; wUnitCorrection++) w[wUnitCorrection] *= 0.000001;
+
+	//Used to square w fitting this against z eliminates the sqrt from the function allowing the standard polyfit function to be used.
+	int wSquared;
+	for (wSquared = 0; wSquared < 15; wSquared++) w[wSquared] = w[wSquared] * w[wSquared];
+
+	//Run the polyfit function with the values calculated
+	result = polyfit(z,
+		w,
+		countOfElements,
+		order,
+		coefficients);
+
+	/*CHECK_EQUAL(0, result);
+	DOUBLES_EQUAL(0.5, coefficients[3], acceptableError);
+	DOUBLES_EQUAL(2.5, coefficients[2], acceptableError);
+	DOUBLES_EQUAL(1.0, coefficients[1], acceptableError);
+	DOUBLES_EQUAL(3.0, coefficients[0], acceptableError);*/
+
+	//These values are the coefficients equivilent  to ax^2 + bx + c
+	double a = coefficients[2];
+	double b = coefficients[1];
+	double c = coefficients[0];
+
+	std::cout << " Coefficients, a, b, and c, are: " << std::endl;
+	outputList = " Coefficients, a, b, and c, are: \r\n";
+	//Prints to coefficients incase they are needed
+	for (int i = 0; i < 3; i++) {
+		std::cout << coefficients[i] << std::endl;
+		outputList = outputList + to_string(coefficients[i])+"\r\n";
+	}
+	//Full M2 equation
+	double M2 = (M_PI / (8 * lambda))*sqrt((4 * a*c) - (pow(b, 2)));
+
+	//Prints the M2 value
+	std::cout << "M2: ";
+	std::cout << M2 << std::endl;
+	outputList = outputList + "M^2:"+to_string(M2)+"\r\n";
+	//Waist location
+	double z0 = -b / (2 * c);
+
+	//Prints the z0, waist location, value
+	std::cout << "z0, Waist Location: ";
+	std::cout << z0 << std::endl;
+	outputList = outputList + "z0, Waist Location:" + to_string(z0) + "\r\n";
+
+	// Waist diameter
+	double w0 = (1 / (2 * sqrt(c)))*sqrt((4 * a*c) - (pow(b, 2)));
+
+	//Prints the w0, waist diameter, value
+	std::cout << "w0, Waist Diameter: ";
+	std::cout << w0 << std::endl;
+	outputList = outputList + "w0, Waist Diameter:" + to_string(w0) + "\r\n";
+	Sleep(3000);
+
+	return outputList;
 }
 
 
-void ployfit::addZposition(int num,int pos) {
-	z[pos] = num;
-}
-void ployfit::addD4sigma(int num, int pos) {
-	w[pos] = num;
-}
 
 //int main()
 //{

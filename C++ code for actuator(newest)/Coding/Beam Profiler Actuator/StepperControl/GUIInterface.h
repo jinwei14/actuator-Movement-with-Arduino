@@ -136,7 +136,7 @@ namespace StepperControl {
 			this->movementTextBox2->Location = System::Drawing::Point(299, 234);
 			this->movementTextBox2->Name = L"movementTextBox2";
 			this->movementTextBox2->Size = System::Drawing::Size(283, 28);
-			this->movementTextBox2->TabIndex = 3;
+			this->movementTextBox2->TabIndex = 2;
 			this->movementTextBox2->Text = L"Enter=50mm";
 			this->movementTextBox2->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
@@ -152,7 +152,7 @@ namespace StepperControl {
 			this->moveButton->Location = System::Drawing::Point(435, 280);
 			this->moveButton->Name = L"moveButton";
 			this->moveButton->Size = System::Drawing::Size(147, 42);
-			this->moveButton->TabIndex = 5;
+			this->moveButton->TabIndex = 3;
 			this->moveButton->Text = L"Enter";
 			this->moveButton->UseVisualStyleBackColor = false;
 			this->moveButton->Click += gcnew System::EventHandler(this, &GUIInterface::moveButton_Click);
@@ -168,7 +168,7 @@ namespace StepperControl {
 			this->confirmButton->Location = System::Drawing::Point(435, 120);
 			this->confirmButton->Name = L"confirmButton";
 			this->confirmButton->Size = System::Drawing::Size(147, 43);
-			this->confirmButton->TabIndex = 7;
+			this->confirmButton->TabIndex = 1;
 			this->confirmButton->Text = L"Confirm";
 			this->confirmButton->UseVisualStyleBackColor = false;
 			this->confirmButton->Click += gcnew System::EventHandler(this, &GUIInterface::confirmButton_Click);
@@ -181,7 +181,7 @@ namespace StepperControl {
 			this->comboBox1->Location = System::Drawing::Point(299, 67);
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(283, 28);
-			this->comboBox1->TabIndex = 8;
+			this->comboBox1->TabIndex = 0;
 			// 
 			// haltButton
 			// 
@@ -194,7 +194,7 @@ namespace StepperControl {
 			this->haltButton->Location = System::Drawing::Point(435, 539);
 			this->haltButton->Name = L"haltButton";
 			this->haltButton->Size = System::Drawing::Size(147, 42);
-			this->haltButton->TabIndex = 11;
+			this->haltButton->TabIndex = 6;
 			this->haltButton->Text = L"haltMoving";
 			this->haltButton->UseVisualStyleBackColor = false;
 			this->haltButton->Click += gcnew System::EventHandler(this, &GUIInterface::haltButton_Click);
@@ -210,7 +210,7 @@ namespace StepperControl {
 			this->setHomeButton->Location = System::Drawing::Point(227, 539);
 			this->setHomeButton->Name = L"setHomeButton";
 			this->setHomeButton->Size = System::Drawing::Size(152, 42);
-			this->setHomeButton->TabIndex = 12;
+			this->setHomeButton->TabIndex = 5;
 			this->setHomeButton->Text = L"setHome";
 			this->setHomeButton->UseVisualStyleBackColor = false;
 			this->setHomeButton->Click += gcnew System::EventHandler(this, &GUIInterface::setHomeButton_Click);
@@ -226,7 +226,7 @@ namespace StepperControl {
 			this->calculateButton->Location = System::Drawing::Point(12, 539);
 			this->calculateButton->Name = L"calculateButton";
 			this->calculateButton->Size = System::Drawing::Size(147, 42);
-			this->calculateButton->TabIndex = 9;
+			this->calculateButton->TabIndex = 4;
 			this->calculateButton->Text = L"Calculate";
 			this->calculateButton->UseVisualStyleBackColor = false;
 			this->calculateButton->Click += gcnew System::EventHandler(this, &GUIInterface::calculateButton_Click);
@@ -243,7 +243,7 @@ namespace StepperControl {
 			this->displayBox->ReadOnly = true;
 			this->displayBox->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
 			this->displayBox->Size = System::Drawing::Size(570, 335);
-			this->displayBox->TabIndex = 13;
+			this->displayBox->TabIndex = 7;
 			this->displayBox->Text = L"\r\n";
 			// 
 			// GUIInterface

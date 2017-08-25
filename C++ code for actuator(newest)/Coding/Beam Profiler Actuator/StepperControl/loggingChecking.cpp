@@ -287,7 +287,7 @@ double loggingChecking::readCSV(string path) {
 //			removeFile(fullPath);
 //			cout << "------------------------------------------------" << endl;
 //			dir = "C:\\Users\\jinwei\\Documents\\BeamGage\\Data";
-//			fullPath = "C:\\Users\\jinwei\\Documents\\BeamGage\\Data\\bmp_0001.bmp";
+//			fullPath = "C:\\Users\\jinwei\\Documents\\BeamGage\\Data\\D4.results.csv";
 //			destination = "C:\\Users\\" + userName + "\\Documents\\" + serialNo;
 //		}
 //

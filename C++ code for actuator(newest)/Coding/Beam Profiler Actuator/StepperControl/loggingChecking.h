@@ -25,7 +25,7 @@ public://(need to imporve)
 	//directory of the 
 	string dir = "C:\\Users\\jinwei\\Documents\\BeamGage\\Data";
 	//full path of the image including name
-	string fullPath = "C:\\Users\\jinwei\\Documents\\BeamGage\\Data\\bmp_0001.results.csv";
+	string fullPath = "C:\\Users\\jinwei\\Documents\\BeamGage\\Data\\D4.results.csv";
 	//destination of the image which is C:\\Users+username+Documentment+beamgage serial number.
 	string destination;
 

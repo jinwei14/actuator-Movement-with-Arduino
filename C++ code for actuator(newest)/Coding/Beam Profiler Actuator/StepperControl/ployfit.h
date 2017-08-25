@@ -2,6 +2,7 @@
 
 #ifndef PLOYFIT_H
 #define PLOYFIT_H
+#include <string>
 #include <vector>
 #include <windows.h>
 #include <iostream>
@@ -19,7 +20,7 @@ const unsigned int countOfElements = 15;
 const double acceptableError = 0.01;
 class ployfit {
 
-public:
+private:
 	//Resulting array of coefs
 	double coefficients[order + 1];
 	//Holds the result from the polyfit equation
@@ -29,8 +30,8 @@ public:
 
 	//Ideal data that will produce M^2 ~ 1.1 
 	//Z - position of measurements(m)
-	double z[countOfElements];
-	//	= { 750, 775, 800, 825, 850, 950, 975, 1000, 1025, 1050, 1150, 1175, 1200, 1225, 1250, };
+	double z[countOfElements]
+	= { 750, 775, 800, 825, 850, 950, 975, 1000, 1025, 1050, 1150, 1175, 1200, 1225, 1250, };
 	//Second moment diameter measurements (m) - d4sigma in spiricon
 	double w[countOfElements];
 	//	= { 626.7, 567.9, 508.8, 450.5, 393.4, 193.1, 163.7, 154, 168.1, 200.8, 404.5, 461.8, 520, 579.2, 638.5, };
@@ -43,11 +44,11 @@ public:
 		unsigned int        countOfElements,
 		unsigned int        order,
 		double*             coefficients);
-	void outputResult();
-	void addZposition(int num,int pos);
-	void addD4sigma(int num,int pos);
+	string outputResult();
+	void setZposition(int num,int pos);
+	void setD4sigma(int num,int pos);
 	double* getZposition() { return z; };
 	double* getD4sigma() { return w; };
-
+	//int getZpositionSize() { return z->; };
 };
 #endif

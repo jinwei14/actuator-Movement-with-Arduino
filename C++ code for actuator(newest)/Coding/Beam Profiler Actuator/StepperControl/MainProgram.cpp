@@ -40,6 +40,8 @@ string machineName, userName, serialNo, LPower;
 string displayStr = "";
 //instance of the loggingChecking class
 loggingChecking checker;
+//used to calculate the M^2 and accept the z-position and d4 sigma.
+ployfit ployfitInstance;
 //
 // The main movement function, takes one argument, which is movement distance
 //
@@ -291,6 +293,22 @@ void StepperControl::GUIInterface::checkingCSV(string machineName, string userNa
 		}
 		else {
 			displayBox->AppendText("CSV captured \r\n");
+			loggingChecking fileR;
+			double result = fileR.readCSV("C:\\Users\\jinwei\\Documents\\BeamGage\\Data\\
+				.results.csv");
+			displayBox->AppendText("Data being added");
+			//put the d4sigma and the z positoin in an array every single time 
+			int i = 0;
+			while (true) {
+				if (ployfitInstance.getD4sigma()[i] != 0) {
+					i++;
+				}
+				else {
+					break;
+				}
+				
+			}
+			ployfitInstance.getD4sigma()[i] = result;
 			//first rename the file as machineName_Date_Time_Z-position_power
 			string newName = checker.renameFileAuto(machineName, checker.fullPath, checker.dir);
 			displayBox->AppendText("CSV renamed \r\n");
@@ -306,7 +324,7 @@ void StepperControl::GUIInterface::checkingCSV(string machineName, string userNa
 			cout << "---------------------------------------------------------" << endl;
 			//change back the directory, fullpath and  destination to previous values
 			checker.dir = "C:\\Users\\jinwei\\Documents\\BeamGage\\Data";
-			checker.fullPath = "C:\\Users\\jinwei\\Documents\\BeamGage\\Data\\bmp_0001.results.csv";
+			checker.fullPath = "C:\\Users\\jinwei\\Documents\\BeamGage\\Data\\D4.results.csv";
 			checker.destination = "C:\\Users\\" + userName + "\\Documents\\" + serialNo;
 			loop = FALSE;
 		}
@@ -314,10 +332,7 @@ void StepperControl::GUIInterface::checkingCSV(string machineName, string userNa
 
 }
 
-void calculationM2() {
-	ployfit pf;
-	pf.outputResult();
-}
+
 
 /**
 *
@@ -441,12 +456,41 @@ void StepperControl::GUIInterface::confirmButton_Click(System::Object^  sender, 
 	}
 }
 //event: when the move button is clicked 
+
 void StepperControl::GUIInterface::moveButton_Click(System::Object^  sender, System::EventArgs^  e) {
 	TraverseMove(500);
 	checkingCSV( machineName, userName,serialNo);
+	
 }
 //event: when the calculate button is clicked 
 void StepperControl::GUIInterface::calculateButton_Click(System::Object^  sender, System::EventArgs^  e) {
+	//size of the d4sigma data array
+	int size = 0;
+	while (true) {
+		if (ployfitInstance.getD4sigma()[size] != 0) {
+			size++;
+		}
+		else {
+			break;
+		}
+
+	}
+	//if there is enough d4Sigma data 
+	if (size >= 15) {
+		string result = ployfitInstance.outputResult();
+		displayBox->AppendText(gcnew String(result.c_str()));
+		//display all the information and stored them in a txt file.
+		std::ofstream out("output.txt");
+		out << result;
+		out.close();
+		//trial ploting
+		system("C:\\Users\\jinwei\\Desktop\\work\\Divergence_Post_Processing\\for_testing\\Divergence_Post_Processing.exe");
+		
+	}
+	else {
+		//prompt user there is not enough data
+		displayBox->AppendText("Data not enough, Can not calculate the result\r\n");
+	}
 
 }
 //event when the setHome button is clicked 
@@ -464,68 +508,12 @@ void StepperControl::GUIInterface::haltButton_Click(System::Object^  sender, Sys
 [STAThread]
 int main(void) {
 
-
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false) ;
 	//StepperControl::GUIInterface mainForm;
 	UserInputControl::inputBox startUp;
 	Application::Run(%startUp);
-	//loggingChecking fileR;
-	//double result = fileR.readCSV("C:\\Users\\jinwei\\Documents\\BeamGage\\Data\\bmp_0001.results.csv");
-	//cout <<"this is final" <<result << endl;
-	////strat of the program
-	////get the current time
-	//time_t t = time(0);   // get time now
-	//struct tm * now = localtime(&t);
-	//cout << (now->tm_year + 1900) << '-'
-	//	<< (now->tm_mon + 1) << '-'
-	//	<< now->tm_mday << '-'
-	//	<< now->tm_hour << ':'
-	//	<< now->tm_min << ':'
-	//	<< now->tm_sec << "(s)"
-	//	<< endl;
-
-	////user input at the beginning of the program.
-	//string machineName, userName, serialNo, LPower;
-	//cout << "Enter the machine name" << endl;
-	//cin >> machineName;
-	//cout << "Enter the user name" << endl;
-	//cin >> userName;
-	//cout << "Enter BeamGage serial number" << endl;
-	//cin >> serialNo;
-	//cout << "Laser Power" << endl;
-	//inputValidation(50, 5000);
-	//cout << "*************************************************************************" << endl;
-	//cout << "This program is designed to move the linear actuator in increments" << endl;
-	//cout << "with a 2.5 micron resolution, and an input range of -32,768 to 32,767." << endl;
-	//cout << "*************************************************************************" << endl;
-	//movingHome();
-
-	////main loop the program
-	//bool flag = TRUE;
-	//while (flag) {
-	//	Sleep(500);
-	//	//menu prompt for user input
-	//	cout << "Please enter the distance (step) you would like to move in microns," << endl;
-	//	cout << "with a positive value being for forward movement, and a negative one for reverse:" << endl;
-	//	cout << "enter 3206 = one revolution " << endl;
-	//	////Either enter the length of movement by hand or pressing an enter.
-	//	//movementDistance = inputValidation(-32768, 32767);
-	//	//cout << "moveDistance" << movementDistance << endl;
-	//	//TraverseMove(movementDistance);
-	//	if (pressEnterMove()) {
-	//		TraverseMove(500);
-	//		//ployfit pt;
-	//		//pt.addD4sigma(750, 0);
-	//	
-	//	
-	//	}
-	//
-	//	logProcessing(machineName, userName, serialNo);//change to initialise and checkingCSV
-	//	//calculationM2();
-	//	
-	//}
-
+	
 	return EXIT_SUCCESS;
 
 }
