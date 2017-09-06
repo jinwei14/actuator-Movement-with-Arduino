@@ -17,11 +17,12 @@
 #include <string>
 #include <algorithm>
 #include <array>
-#using <System.dll>
 #include "loggingChecking.h"
 #include "ployfit.h"
 #include "GUIInterface.h"
 #include "inputBox.h"
+#using <System.dll>
+
 using namespace System;
 using namespace System::IO::Ports;
 using namespace System::ComponentModel;
@@ -477,15 +478,20 @@ void StepperControl::GUIInterface::calculateButton_Click(System::Object^  sender
 	}
 	//if there is enough d4Sigma data 
 	if (size >= 15) {
+		
 		string result = ployfitInstance.outputResult();
 		displayBox->AppendText(gcnew String(result.c_str()));
 		//display all the information and stored them in a txt file.
 		std::ofstream out("output.txt");
 		out << result;
-		out.close();
-		//trial ploting
-		system("C:\\Users\\jinwei\\Desktop\\work\\Divergence_Post_Processing\\for_testing\\Divergence_Post_Processing.exe");
 		
+		ployfit bbb;
+		for (int k = 0; k<16; k++){
+			out << "D4sigma :" << bbb.getD4sigma()[k] << endl; //Outputs array to txtFile
+		}	
+		out.close();
+		bbb.outputResult();
+		bbb.plotFuction();
 	}
 	else {
 		//prompt user there is not enough data
@@ -507,6 +513,8 @@ void StepperControl::GUIInterface::haltButton_Click(System::Object^  sender, Sys
 //windows form thread that load up the user input windows.
 [STAThread]
 int main(void) {
+
+	
 
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false) ;

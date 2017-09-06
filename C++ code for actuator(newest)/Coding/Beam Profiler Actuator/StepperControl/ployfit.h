@@ -4,12 +4,39 @@
 #define PLOYFIT_H
 #include <string>
 #include <vector>
+#include <stdlib.h>
 #include <windows.h>
 #include <iostream>
 #include <math.h>
 
 #define _USE_MATH_DEFINES
 #define M_PI  3.14159265358979323846  /* pi */
+
+/*
+***********************matlab header file***********************
+*/
+#include <Engine.h> //include the matlab engine
+
+#include <cmath>
+
+
+
+//additional dependency part from linker
+
+#pragma comment (lib, "libmat.lib")//type and "name"
+
+#pragma comment (lib, "libmx.lib")
+
+#pragma comment (lib, "libmex.lib")
+
+#pragma comment (lib, "libeng.lib")
+
+
+#define  BUFSIZE 256
+/*
+***********************matlab header file end ***********************
+*/
+
 
 using namespace std;
 //The order of the equation, in this case it is second order
@@ -33,8 +60,8 @@ private:
 	double z[countOfElements]
 	= { 750, 775, 800, 825, 850, 950, 975, 1000, 1025, 1050, 1150, 1175, 1200, 1225, 1250, };
 	//Second moment diameter measurements (m) - d4sigma in spiricon
-	double w[countOfElements];
-	//	= { 626.7, 567.9, 508.8, 450.5, 393.4, 193.1, 163.7, 154, 168.1, 200.8, 404.5, 461.8, 520, 579.2, 638.5, };
+	double w[countOfElements]
+		= { 626.7, 567.9, 508.8, 450.5, 393.4, 193.1, 163.7, 154, 168.1, 200.8, 404.5, 461.8, 520, 579.2, 638.5, };
 
 public:
 	ployfit();//constructor
@@ -50,5 +77,6 @@ public:
 	double* getZposition() { return z; };
 	double* getD4sigma() { return w; };
 	//int getZpositionSize() { return z->; };
+	void plotFuction();
 };
 #endif

@@ -176,7 +176,7 @@ string ployfit::outputResult() {
 	//Prints to coefficients incase they are needed
 	for (int i = 0; i < 3; i++) {
 		std::cout << coefficients[i] << std::endl;
-		outputList = outputList + to_string(coefficients[i])+"\r\n";
+		outputList = outputList + to_string(coefficients[i]) + "\r\n";
 	}
 	//Full M2 equation
 	double M2 = (M_PI / (8 * lambda))*sqrt((4 * a*c) - (pow(b, 2)));
@@ -184,7 +184,7 @@ string ployfit::outputResult() {
 	//Prints the M2 value
 	std::cout << "M2: ";
 	std::cout << M2 << std::endl;
-	outputList = outputList + "M^2:"+to_string(M2)+"\r\n";
+	outputList = outputList + "M^2:" + to_string(M2) + "\r\n";
 	//Waist location
 	double z0 = -b / (2 * c);
 
@@ -206,7 +206,117 @@ string ployfit::outputResult() {
 }
 
 
-
+void ployfit::plotFuction() {
+	Engine *ep;
+	mxArray *X1 = NULL, *result = NULL;
+	char buffer[BUFSIZE + 1];
+	double zPosition[11] = { 0.75, 0.80, 0.85, 0.9, 0.95, 1, 1.05, 1.1, 1.15, 1.2, 1.25 };
+	/*
+	* Call engOpen with a NULL string. This starts a MATLAB process
+	* on the current host using the command "matlab".
+	*/
+	if (!(ep = engOpen(""))) {
+		cout << "can not start the engine!" << endl;
+		return;
+	}
+	/*
+	* PART I
+	*
+	* For the first half of this demonstration, we will send data
+	* to MATLAB, analyze the data, and plot the result.
+	*/
+	/*
+	* Create a variable for our data
+	*/
+	X1 = mxCreateDoubleMatrix(1, 11, mxREAL);
+	memcpy((void *)mxGetPr(X1), (void *)zPosition, sizeof(zPosition));
+	/*
+	* Place the variable T into the MATLAB workspace
+	*/
+	engPutVariable(ep, "X1", X1);
+	/*
+	* Evaluate a function of time, distance = (1/2)g.*t.^2
+	* bY1=aX1^2+bX1+c
+	* (g is the acceleration due to gravity)
+	*/
+	std::string functionStr = 
+		"Y1 =" + to_string(coefficients[0]) + 
+		".*(X1.^2)+" + to_string(coefficients[1]) + 
+		"*(X1) +" + to_string(coefficients[2])+";";
+	engEvalString(ep, functionStr.c_str());
+	//engEvalString(ep, "Y1 = (2.4079).*(10.^-5).*(X1.^2)-(4.8085).*(10.^-5).*(X1) + (2.4101).*(10.^-5);");
+	//engEvalString(ep, "X1=0.75:0.01:1.25;");
+	/*
+	* Plot the result
+	*/
+	engEvalString(ep, "plot(X1,Y1);");
+	engEvalString(ep, "title('laser beam');");
+	engEvalString(ep, "xlabel('Z-postion (mm)');");
+	engEvalString(ep, "ylabel('Second moment diameter measurements (m) - d4sigma in spiricon');");
+	/*
+	* use fgetc() to make sure that we pause long enough to be
+	* able to see the plot
+	*/
+	//printf("Hit return to continue\n\n");
+	//fgetc(stdin);
+	///*
+	//* We're done for Part I! Free memory, close MATLAB figure.
+	//*/
+	printf("Done for Part I.\n");
+	mxDestroyArray(X1);
+	//engEvalString(ep, "close;");
+	/*
+	* PART II
+	*
+	* For the second half of this demonstration, we will request
+	* a MATLAB string, which should define a variable X.  MATLAB
+	* will evaluate the string and create the variable.  We
+	* will then recover the variable, and determine its type.
+	*
+	* Use engOutputBuffer to capture MATLAB output, so we can
+	* echo it back.  Ensure first that the buffer is always NULL
+	* terminated.
+	*/
+	buffer[BUFSIZE] = '\0';
+	engOutputBuffer(ep, buffer, BUFSIZE);
+	//while (result == NULL) {
+	//	char str[BUFSIZE + 1];
+	//	/*
+	//	* Get a string input from the user
+	//	*/
+	//	printf("Enter a MATLAB command to evaluate.  This command should\n");
+	//	printf("create a variable X.  This program will then determine\n");
+	//	printf("what kind of variable you created.\n");
+	//	printf("For example: X = 1:5\n");
+	//	printf(">> ");
+	//	fgets(str, BUFSIZE, stdin);
+	//	/*
+	//	* Evaluate input with engEvalString
+	//	*/
+	//	engEvalString(ep, str);
+	//	/*
+	//	* Echo the output from the command.
+	//	*/
+	//	printf("%s", buffer);
+	//	/*
+	//	* Get result of computation
+	//	*/
+	//	printf("\nRetrieving X...\n");
+	//	if ((result = engGetVariable(ep, "X")) == NULL)
+	//		printf("Oops! You didn't create a variable X.\n\n");
+	//	else {
+	//		printf("X is class %s\t\n", mxGetClassName(result));
+	//	}
+	//}
+	/*
+	* We're done! Free memory, close MATLAB engine and exit.
+	*/
+	printf("Done!\n");
+	mxDestroyArray(result);
+	//engClose(ep);
+	/*system("pause");*/
+	return;
+}
 //int main()
 //{
 //	//Used to multiply Z by 10^-3 in order to get correct units

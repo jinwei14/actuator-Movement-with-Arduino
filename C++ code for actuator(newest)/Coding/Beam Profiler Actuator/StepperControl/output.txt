@@ -1,1 +1,23 @@
-bbbb
+ Coefficients, a, b, and c, are: 
+0.000024
+-0.000048
+0.000024
+M^2:1.098524
+z0, Waist Location:0.998497
+w0, Waist Diameter:0.000308
+D4sigma :626.7
+D4sigma :567.9
+D4sigma :508.8
+D4sigma :450.5
+D4sigma :393.4
+D4sigma :193.1
+D4sigma :163.7
+D4sigma :154
+D4sigma :168.1
+D4sigma :200.8
+D4sigma :404.5
+D4sigma :461.8
+D4sigma :520
+D4sigma :579.2
+D4sigma :638.5
+D4sigma :2.80732e-310
