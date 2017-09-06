@@ -7,7 +7,6 @@ actuator Movement with Arduino and C++ using uStepper
 ## matlab beam profile plotting
 ![screenshot 42](https://user-images.githubusercontent.com/26280459/30111996-b23f02a6-9307-11e7-9251-40c0d2c02ea6.png)
 
-![screenshot 42](https://user-images.githubusercontent.com/26280459/30112203-5ad67b10-9308-11e7-840f-d95156db175c.png)
 ![screenshot 41](https://user-images.githubusercontent.com/26280459/30112211-5f5f0666-9308-11e7-8be0-4cc1ec8390d3.png)
 ![screenshot 38](https://user-images.githubusercontent.com/26280459/30112219-62373f8e-9308-11e7-8a3a-47ca406e0a1b.png)
 ![img_3458](https://user-images.githubusercontent.com/26280459/30112222-65b48e50-9308-11e7-8dd4-2ec65cf00a27.JPG)
